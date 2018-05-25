@@ -1,11 +1,11 @@
 <?php
 
-$driver = 'mysql';
-$host = 'localhost';
-$db_user = 'myalex';
-$db_name = 'myalex';
-$db_password = 'ljF78343298##1!';
-$charset = 'utf8';
+$driver = '';
+$host = '';
+$db_user = '';
+$db_name = '';
+$db_password = '';
+$charset = '';
 $option = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 
 
