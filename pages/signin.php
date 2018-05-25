@@ -1,3 +1,11 @@
+<?php
+include_once '../core/session.php';
+if(isset($_SESSION['auth'])){
+//    print_r($_SESSION);
+    die('Вы уже авторизованы!');
+
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,6 +22,7 @@
 
     <!-- Custom styles for this template -->
     <link href="../assets/css/signin.css" rel="stylesheet">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body class="text-center">
@@ -24,11 +33,12 @@
     <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> Remember me
-        </label>
-    </div>
+    <div class="g-recaptcha" data-sitekey="6Lc451YUAAAAAPvYOHlAIQUxSV0I340bxRrPM7j1"></div>
+    <!--    <div class="checkbox mb-3">-->
+<!--        <label>-->
+<!--            <input type="checkbox" value="remember-me"> Remember me-->
+<!--        </label>-->
+<!--    </div>-->
     <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
     <p class="mt-5 mb-3 text-muted">&copy; Sasha Yershov 2018</p>
 </form>

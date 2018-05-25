@@ -1,18 +1,16 @@
 <?php
 
-$driver = 'mysql';
 $host = 'localhost';
 $db_user = 'myalex';
 $db_name = 'myalex';
-$db_password = 'ljF78343298##1!';
-$charset = 'utf8';
-$option = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
+$db_password = '123esRedecca456';
 
 
 try{
     global $pdo;
-    $pdo = new PDO("$driver:host=$host;dbname=$db_name;charset=$charset",$db_user,$db_password,$option);
+    $pdo = new PDO("mysql:host=$host;dbname=$db_name",$db_user,$db_password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch (Exception $e){
-    echo 'Не могу подключиться к базе данных' . $e;
+    echo 'Не могу подключиться к базе данных' . $e->getMessage();
 }

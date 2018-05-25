@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+@import url('https://fonts.googleapis.com/css?family=Pangolin');
+
 :root {
     --jumbotron-padding-y: 3rem;
 }
@@ -36,7 +39,7 @@ footer p {
     margin-bottom: .25rem;
 }
 
-.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+.box-shadow { box-shadow: 0 .45rem .75rem rgba(96, 155, 202, 0.64); }
 
 .pair{
     text-align: center;
@@ -46,4 +49,57 @@ footer p {
     color: #ff812e;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+/*NOT DEFAULT STYLES*/
+.button {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8px;
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 200px;
+    height: 30px;
+    display: block;
+    background: linear-gradient(to right, black 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition:all .5s ease;
+    color: #000;
+    font-family: Impact, serif;
+
+}
+
+.button:hover {
+    background-position: left bottom;
+    color: #fff;
+}
+
+.button:active{
+    background-position: left bottom;
+    color: #fff;
+}
+
+.developer{
+    font-family: 'Great Vibes', cursive;
+    font-weight: bold;
+    user-select: none;
+    color: #000;
+}
+
+.hrLast{
+    box-shadow: 0 0 10px orangered;
+    background: rgba(94, 47, 0, 0.62);
+}
+
+.hrLast:last-child{
+    visibility: hidden;
+}
+
+.dayOfWeek{
+    text-align: center;
+    font-size: 1.3em;
+    text-shadow:0px 0px 7px #00c6ff;
+    color: #007bff;
+    font-family: 'Pangolin', cursive;
 }
