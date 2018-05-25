@@ -1,11 +1,4 @@
-<? require_once 'core/session.php';
-?>
-
-<!--при загрузке главной страницы перенаправить на сегоднящние пары-->
-<form method="get">
-    <input type="hidden" name="item" value="today">
-</form>
-
+<? require_once 'core/session.php'; ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,8 +8,6 @@
     <meta name="author" content="">
     <link rel="icon" href="../assets/images/logo.png">
 
-<!--    переадресация на сегодняшние пары-->
-
     <title>Redecca</title>
 
     <!-- Bootstrap core CSS -->
@@ -25,7 +16,6 @@
     <!-- Custom styles for this template -->
     <link href="../assets/css/main_page.css" rel="stylesheet">
     <link href="../assets/css/annotations.css" rel="stylesheet">
-    <link href="../assets/css/exams.css" rel="stylesheet">
 
 </head>
 
@@ -34,7 +24,7 @@
 <header>
     <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
-            <a href="index.php" class="navbar-brand d-flex align-items-center">
+            <a href="#" class="navbar-brand d-flex align-items-center">
                 <img src="../assets/images/logo.png" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></img>
                 <strong style="user-select: none;">Redecca</strong>
             </a>
@@ -51,7 +41,7 @@
         <div class="container">
             <h1 class="jumbotron-heading">Project REDECCA</h1>
 
-            <p class="lead text-muted">Redecca - это новая информационная система для группы AI-163. Почувствуй производительность и функциональность новой системы прямо сейчас пройдя небольшую регистрацию. </p>
+            <p class="lead text-muted">Redecca - это новая информационная система для группы AI-163 (в будущем, возможно и других). Почувствуйте производительность и функциональность новой системы пройдя небольшую регистрацию. </p>
             <p>
                 <a href="../pages/signup.php" class="btn btn-primary my-2">Регистрация</a>
                 <a href="../pages/signin.php" class="btn btn-secondary my-2">Авторизация</a>
@@ -59,138 +49,38 @@
         </div>
     </section>
     <? endif; ?>
-    <?php
-    // require_once 'core/logout.php';
-    ?>
-    <!-- <a href="?item=logout" class="btn btn-secondary my-2">LogOut</a> -->
-
 
     <?php if(isset($_SESSION['auth'])) : ?>
-        <? require_once 'core/lessons.php'; ?>
-        <?php getVisits();?>
-        <?php inputVerify(); ?>
-    <section class="jumbotron text-center" style="padding-top: 30px; padding-bottom: 30px;">
+    <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading css-typing"><?php echo showGreeting() . ', '  . ucfirst($_SESSION['auth']); ?></h1>
+            <h1 class="jumbotron-heading">Привет, <?php echo ucfirst($_SESSION['auth']); ?></h1>
 
-          <?php endif; ?>
-            <?php if($_GET['item'] == 'week') : ?>
-            <p class="lead text-muted" style="margin-bottom: 5px;">Выбери тип недели:</p>
-            <?php else: ?>
-            <p class="lead text-muted" style="margin-bottom: 5px;">Что бы ты хотел(а) узнать?</p>
-            <?php endif;?>
+            <p class="lead text-muted">Сайт находится на этапе тестирования. Если в работе сайта заметишь баги, глюки, или есть предложение по улучшению напиши в л.с.  </p>
             <p>
-             <a href="?item=today"  class="btn button">Расписание на сегодня</a>
-             <a href="?item=week" class="btn button">Расписание на неделю</a>
-                <?php if($_GET['item'] == 'week') : ?>
-                <a href="?item=week_even" class="btn button" id="even">Чётная</a>
-                <a href="?item=week_odd" class="btn button" id="odd">Нечётная</a>
-                <?php endif; ?>
-             <a href="?item=annotations" class="btn button">Аннотации к предметам</a>
-             <a href="?item=exams" class="btn button">Рассписание экзаменов</a>
+                <a href="?item=today"  class="btn btn-secondary my-2">Расписание на сегодня</a>
+                <a href="?item=week" class="btn btn-secondary my-2">Расписание на неделю</a>
+                <a href="?item=annotations" class="btn btn-secondary my-2">Аннотации к предметам</a>
+                <a href="signin.php" class="btn btn-secondary my-2">Оценивание преподавателей</a>
             </p>
         </div>
     </section>
     <? endif; ?>
 
 
-    <div class="block" id = "today"><?php include_once 'today.php'; ?></div>
-    <div class="block" id = "week"><?php include_once 'week.php'; ?></div>
-    <div class="block" id = "annotations"><?php include_once 'annotations.php'; ?></div>
-    <div class="block" id="exams"><?php include_once 'exams.php'; ?></div>
+    <div div class="block" id = "today"><?php include_once 'today.php'; ?></div>
+    <div div class="block" id = "week"><?php include_once 'week.php'; ?></div>
+    <div div class="block" id = "annotations"><?php include_once 'annotations.php'; ?></div>
 
 
 </main>
 <footer class="text-muted">
-    <div id="teeest"></div>
     <div class="container">
         <p class="float-right">
-            <span class="developer">&copy;Sasha Yershov 2018</span>
+            &copy;Sasha Yershov 2018
         </p>
+
     </div>
 </footer>
-
-<!--Подключение jQuery-->
-<script src="../assets/js/jquery.js"></script>
-
-
-<!-- Если сейчас пара идёт - блок мигает жёлтым, если заакончилась - закрашивается в зелёный цвет -->
-<script type="text/javascript">
-var Date = new Date();
-hours = Date.getHours();
-minutes = Date.getMinutes();
-    function blinkNov(element) {
-        var timeId1 = setInterval(function () {
-            $(element).css('background', 'orange');
-        }, 1000);
-
-        var timeId2 = setInterval(function () {
-            $(element).css('background', '#fff');
-        }, 2000);
-        }
-
-if(hours == '8'){
-        blinkNov('#0');
-}
-if(hours == '9' && minutes<='35'){
-        blinkNov('#0');
-}
-
-// Мигание на второй паре
-if(hours == '9' && minutes>='36'){
-    $('#0').css('background', '#47B930');
-    blinkNov('#1');
-}
-if(hours == '10'){
-    $('#0').css('background', '#47B930');
-    blinkNov('#1');
-}
-if(hours == '11' && minutes<='25'){
-    $('#0').css('background', '#47B930');
-    blinkNov('#1');
-}
-
-// Мигание на третьей паре
-if(hours == '11' && minutes>='26'){
-    $('#0').css('background', '#47B930');
-    $('#1').css('background', '#47B930');
-    blinkNov('#2');
-}
-
-if(hours=='12'){
-    $('#0').css('background', '#47B930');
-    $('#1').css('background', '#47B930');
-    blinkNov('#2');
-}
-
-if(hours=='13' && minutes<='15'){
-    $('#0').css('background', '#47B930');
-    $('#1').css('background', '#47B930');
-    blinkNov('#2');
-}
-
-// Мигание на четвёртой паре
-if(hours == '13' && minutes>='16'){
-    $('#0').css('background', '#47B930');
-    $('#1').css('background', '#47B930');
-    $('#2').css('background', '#47B930');
-    blinkNov('#3');
-}
-
-if(hours=='14'){
-    $('#0').css('background', '#47B930');
-    $('#1').css('background', '#47B930');
-    $('#2').css('background', '#47B930');
-    blinkNov('#3');
-}
-
-if(hours=='15' && minutes<='5'){
-    $('#0').css('background', '#47B930');
-    $('#1').css('background', '#47B930');
-    $('#2').css('background', '#47B930');
-    blinkNov('#3');
-    }
-</script>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -201,5 +91,12 @@ if(hours=='15' && minutes<='5'){
 <script src="../../../../dist/js/bootstrap.min.js"></script>
 <script src="../../../../assets/js/vendor/holder.min.js"></script>
 
+
+
+
+
+<script>
+
+</script>
 </body>
 </html>
